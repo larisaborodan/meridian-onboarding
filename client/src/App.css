@@ -1,0 +1,99 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: #f4f6f8;
+  color: #1f2933;
+}
+
+.app {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+header {
+  margin-bottom: 32px;
+}
+
+header h1 {
+  font-size: 28px;
+  margin-bottom: 4px;
+}
+
+header > p {
+  color: #6b7280;
+  margin-bottom: 16px;
+}
+
+.progress-bar {
+  height: 10px;
+  background: #e5e7eb;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #2563eb;
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
+.progress-label {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+section {
+  margin-bottom: 28px;
+}
+
+section h2 {
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #6b7280;
+  margin-bottom: 12px;
+}
+
+.task {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+}
+
+.task:hover {
+  border-color: #2563eb;
+}
+
+.task input {
+  margin-top: 4px;
+  width: 16px;
+  height: 16px;
+  accent-color: #2563eb;
+  cursor: pointer;
+}
+
+.task p {
+  font-size: 14px;
+  color: #6b7280;
+  margin-top: 2px;
+}
+
+.task.done strong {
+  text-decoration: line-through;
+  color: #9ca3af;
+}
