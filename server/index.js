@@ -6,7 +6,13 @@ const employeesRouter = require('./routes/employees');
 const faqRouter = require('./routes/faq');
 const { errorHandler } = require('./middleware/errorHandler');
 const app = express();
-app.use(cors());
+
+const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
+
+app.use(helmet());
+app.use(cors({ origin: 'http://localhost:5173' }));
+app.use(rateLimit({ windowMs: 15 * 60 * 1000, max: 300 }));
 app.use(express.json());
 
 
