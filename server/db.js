@@ -12,7 +12,8 @@ db.exec(`
     department TEXT NOT NULL,
     email TEXT NOT NULL,
     slack_handle TEXT NOT NULL,
-    is_buddy INTEGER NOT NULL DEFAULT 0
+    is_buddy INTEGER NOT NULL DEFAULT 0,
+    start_date TEXT NOT NULL DEFAULT '2020-01-01'
   );
 
   CREATE TABLE IF NOT EXISTS onboarding_tasks (
@@ -21,8 +22,15 @@ db.exec(`
     description TEXT NOT NULL,
     category TEXT NOT NULL,
     due_phase TEXT NOT NULL CHECK (due_phase IN ('day1', 'week1', 'month1')),
-    sort_order INTEGER NOT NULL DEFAULT 0,
-    completed INTEGER NOT NULL DEFAULT 0
+    sort_order INTEGER NOT NULL DEFAULT 0
+  );
+
+  CREATE TABLE IF NOT EXISTS task_progress (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    employee_id INTEGER NOT NULL REFERENCES employees(id),
+    task_id INTEGER NOT NULL REFERENCES onboarding_tasks(id),
+    completed INTEGER NOT NULL DEFAULT 0,
+    UNIQUE (employee_id, task_id)
   );
 
   CREATE TABLE IF NOT EXISTS faq (
