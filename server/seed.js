@@ -32,24 +32,24 @@ const newHires = [
 newHires.forEach((e) => insertEmployee.run(...e));
 
 const tasks = [
-  ['Pick up your laptop and badge', 'Visit Laura from HR (room 204) to collect your equipment and access badge.', 'Setup', 'day1', 1],
-  ['Set up your work accounts', 'Activate your Meridian email, then log in to Slack and Google Meet with it.', 'Setup', 'day1', 2],
-  ['Join the essential Slack channels', 'Join #general, #announcements and your department channel (e.g. #engineering).', 'Communication', 'day1', 3],
-  ['Meet your buddy', 'Your buddy will message you on Slack. Grab a coffee together — they are your go-to person for any question.', 'People', 'day1', 4],
-  ['Read the hybrid work policy', 'Meridian works 3 days in the office (Mon, Tue, Thu) and 2 days remote (Wed, Fri).', 'Policies', 'day1', 5],
-  ['Set up your development environment', 'Follow the setup guide pinned in #engineering. Ask your buddy if anything fails.', 'Setup', 'week1', 6],
-  ['1:1 with your manager', 'A 30-minute intro meeting: expectations, your first tasks, how the team works.', 'People', 'week1', 7],
-  ['Intro call with each department', 'Short Google Meet calls with a contact person from Sales, Marketing, HR and Finance.', 'People', 'week1', 8],
-  ['Complete the HR paperwork', 'Sign the remaining documents Laura sent you by email.', 'Admin', 'week1', 9],
-  ['Ship your first small task', 'Your manager will assign a starter task — the goal is to go through the full team workflow once.', 'Work', 'week1', 10],
-  ['Introduce yourself at the all-hands', 'A 2-minute intro at the monthly all-hands on Google Meet. Everyone does it, everyone survives.', 'People', 'month1', 11],
-  ['Give onboarding feedback', 'Tell HR what was confusing during your first month — it directly improves this app.', 'Admin', 'month1', 12],
-  ['30-day check-in with your manager', 'A retrospective on your first month: what went well, what support you still need.', 'People', 'month1', 13],
-  ['Own a task end-to-end', 'By the end of month one you should have a task that is fully yours, from start to finish.', 'Work', 'month1', 14],
+  ['Pick up your laptop and badge', 'Visit Laura from HR (room 204) to collect your equipment and access badge.', null, 'Setup', 'day1', 1],
+  ['Set up your work accounts', 'Activate your Meridian email, then log in to Slack and Google Meet with it.', null, 'Setup', 'day1', 2],
+  ['Join the essential Slack channels', 'Join #general, #announcements and your department channel (e.g. #engineering).', '#random is where friendships happen, not just #general. Lurk for a day, then jump in.', 'Communication', 'day1', 3],
+  ['Meet your buddy', 'Your buddy will message you on Slack. Grab a coffee together — they are your go-to person for any question.', 'Every question you are embarrassed to ask your manager — this is who you ask instead.', 'People', 'day1', 4],
+  ['Read the hybrid work policy', 'Meridian works 3 days in the office (Mon, Tue, Thu) and 2 days remote (Wed, Fri).', 'Nothing is more awkward than showing up to an empty office on a remote day.', 'Policies', 'day1', 5],
+  ['Set up your development environment', 'Follow the setup guide pinned in #engineering. Ask your buddy if anything fails.', null, 'Setup', 'week1', 6],
+  ['1:1 with your manager', 'A 30-minute intro meeting: expectations, your first tasks, how the team works.', null, 'People', 'week1', 7],
+  ['Intro call with each department', 'Short Google Meet calls with a contact person from Sales, Marketing, HR and Finance.', 'Knowing one face in every department makes the whole company feel smaller.', 'People', 'week1', 8],
+  ['Complete the HR paperwork', 'Sign the remaining documents Laura sent you by email.', null, 'Admin', 'week1', 9],
+  ['Ship your first small task', 'Your manager will assign a starter task — the goal is to go through the full team workflow once.', 'It is not about the task — it is about touching every step of how the team works.', 'Work', 'week1', 10],
+  ['Introduce yourself at the all-hands', 'A 2-minute intro at the monthly all-hands on Google Meet. Everyone does it, everyone survives.', 'In a 200-person company, this is how people start recognizing you in the kitchen.', 'People', 'month1', 11],
+  ['Give onboarding feedback', 'Tell HR what was confusing during your first month — it directly improves this app.', null, 'Admin', 'month1', 12],
+  ['30-day check-in with your manager', 'A retrospective on your first month: what went well, what support you still need.', null, 'People', 'month1', 13],
+  ['Own a task end-to-end', 'By the end of month one you should have a task that is fully yours, from start to finish.', null, 'Work', 'month1', 14],
 ];
 
 const insertTask = db.prepare(
-  'INSERT INTO onboarding_tasks (title, description, category, due_phase, sort_order) VALUES (?, ?, ?, ?, ?)'
+  'INSERT INTO onboarding_tasks (title, description, why, category, due_phase, sort_order) VALUES (?, ?, ?, ?, ?, ?)'
 );
 tasks.forEach((t) => insertTask.run(...t));
 

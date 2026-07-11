@@ -20,6 +20,7 @@ db.exec(`
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     title TEXT NOT NULL,
     description TEXT NOT NULL,
+    why TEXT,
     category TEXT NOT NULL,
     due_phase TEXT NOT NULL CHECK (due_phase IN ('day1', 'week1', 'month1')),
     sort_order INTEGER NOT NULL DEFAULT 0
